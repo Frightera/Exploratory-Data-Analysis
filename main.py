@@ -82,7 +82,7 @@ train_df = pd.concat([train_df,test_df],axis = 0).reset_index(drop = True)
 train_df.columns[train_df.isnull().any()] #checking
 train_df.isnull().sum() # how many of them?
 
-#Fill
+#Fill Fare & Embarked
 train_df.boxplot(column="Fare",by = "Embarked")
 plt.show()
 train_df["Embarked"] = train_df["Embarked"].fillna("C")
@@ -90,3 +90,15 @@ train_df[train_df["Embarked"].isnull()]
 
 train_df[train_df["Fare"].isnull()]
 train_df["Fare"] = train_df["Fare"].fillna(np.mean(train_df[train_df["Pclass"] == 3]["Fare"]))
+
+#Fill Age
+index_nan_age = list(train_df["Age"][train_df["Age"].isnull()].index)
+for i in index_nan_age:
+    age_pred = train_df["Age"][((train_df["SibSp"] == train_df.iloc[i]["SibSp"]) &(train_df["Parch"] == train_df.iloc[i]["Parch"])& (train_df["Pclass"] == train_df.iloc[i]["Pclass"]))].median()
+    age_med = train_df["Age"].median()
+    if not np.isnan(age_pred):
+        train_df["Age"].iloc[i] = age_pred
+    else:
+        train_df["Age"].iloc[i] = age_med
+        
+train_df[train_df["Age"].isnull()]
