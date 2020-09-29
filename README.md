@@ -32,4 +32,4 @@ The massive ship, which carried 2,224 passengers and crew, got 1502 people kille
   ![ex3](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/fill_embarked.png)
   
   # Visualization
-  - Will be added.
+  <img src="https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/RelationAnalysis/Parch%20-%20Survived.png" width="250"> | <img src="https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/RelationAnalysis/Pclass%20-%20Survived%20-%20Age%20-%20Embarked.png" width="250"> | <img src="https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/RelationAnalysis/Pclass%20-%20Survived%20-%20Embarked%20-%20Sex%20-%20Fare.png" width="250">
