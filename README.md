@@ -22,6 +22,7 @@ The massive ship, which carried 2,224 passengers and crew, got 1502 people kille
   - Sex - Survived ?
   - SibSp _ Survived ?
   - Parch - Survived ?
+  ![ex5](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/RelationAnalysis/Correlation.png)
   
   - ## Outlier Detection
   ![ex1](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/outliers.PNG)
