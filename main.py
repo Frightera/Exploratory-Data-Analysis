@@ -102,3 +102,159 @@ for i in index_nan_age:
         train_df["Age"].iloc[i] = age_med
         
 train_df[train_df["Age"].isnull()]
+
+# %% FEATURE ENGINEERING
+
+# Name - Title
+
+train_df['Name'].head(15)
+# It is not logical to have a relation between name & survival rate.
+# Splitting Mr Mrs etc might be useful.
+
+name = train_df['Name']
+train_df['Title'] = [i.split(".")[0].split(",")[-1].strip() for i in name]
+
+sns.countplot(x = 'Title', data = train_df)
+plt.xticks(rotation=45)
+plt.show()
+
+# convert to categorical
+train_df["Title"] = train_df["Title"].replace(["Lady","the Countess","Capt","Col","Don","Dr","Major","Rev","Sir","Jonkheer","Dona"],"other")
+train_df["Title"] = [0 if i == "Master" else 1 if i == "Miss" or i == "Ms" or i == "Mlle" or i == "Mrs" else 2 if i == "Mr" else 3 for i in train_df["Title"]]
+train_df["Title"].head(15)
+
+sns.countplot(x="Title", data = train_df)
+plt.xticks(rotation = 45)
+plt.show()
+
+g = sns.catplot(x = "Title", y = "Survived", hue = "Sex", data = train_df, kind = "point")
+g.set_xticklabels(["Master","Mrs","Mr","Other"])
+g.set_ylabels("Survival Probability")
+plt.show()
+
+train_df.drop(labels = ["Name"], axis = 1, inplace = True) # no need for name column
+train_df = pd.get_dummies(train_df,columns=["Title"])
+train_df.head()
+
+
+# Family Size
+
+train_df["Fsize"] = train_df["SibSp"] + train_df["Parch"] + 1
+# add 1 if parch and sibsp are zero at the same time, so the smallest family's size consists to 1.
+
+g = sns.catplot(x = "Fsize", y = "Survived", data = train_df, kind = "bar")
+g.set_ylabels("SurvivalProb")
+plt.show()
+
+train_df["family_size"] = [1 if i < 5 else 0 for i in train_df["Fsize"]]
+#check plot
+
+train_df['family_size'].value_counts()
+# 1    1227
+# 0      72
+
+g = sns.catplot(x = "family_size", y = "Survived", data = train_df, kind = "bar")
+g.set_ylabels("SurvivalRate")
+plt.show()
+# Small families have more chance to survive, as can be seen.
+
+train_df = pd.get_dummies(train_df, columns= ["family_size"])
+train_df.head(15)
+"""
+        PassengerId  Survived Pclass  ... Fsize  family_size_0  family_size_1
+0             1       0.0       3  ...     2              0              1
+1             2       1.0       1  ...     2              0              1
+2             3       1.0       3  ...     1              0              1
+3             4       1.0       1  ...     2              0              1
+4             5       0.0       3  ...     1              0              1
+5             6       0.0       3  ...     1              0              1
+6             7       0.0       1  ...     1              0              1
+7             8       0.0       3  ...     5              1              0
+8             9       1.0       3  ...     3              0              1
+9            10       1.0       2  ...     2              0              1
+10           11       1.0       3  ...     3              0              1
+11           12       1.0       1  ...     1              0              1
+12           13       0.0       3  ...     1              0              1
+13           14       0.0       3  ...     7              1              0
+14           15       0.0       3  ...     1              0              1
+"""
+
+# Embarked
+
+sns.countplot(x = "Embarked", data = train_df)
+plt.show()
+
+train_df = pd.get_dummies(train_df, columns=["Embarked"])
+
+# Ticket 
+
+train_df["Ticket"].head(15)
+"""
+0            A/5 21171
+1             PC 17599
+2     STON/O2. 3101282
+3               113803
+4               373450
+5               330877
+6                17463
+7               349909
+8               347742
+9               237736
+10             PP 9549
+11              113783
+12           A/5. 2151
+13              347082
+14              350406
+"""
+tickets_mylist = []
+for n in list(train_df.Ticket):
+    if not n.isdigit():
+        tickets_mylist.append(n.replace(".","").replace("/","").strip().split(" ")[0])
+    else:
+        tickets_mylist.append("x")
+train_df["Ticket"] = tickets_mylist
+
+train_df["Ticket"].head(15)
+"""
+0         A5
+1         PC
+2     STONO2
+3          x
+4          x
+5          x
+6          x
+7          x
+8          x
+9          x
+10        PP
+11         x
+12        A5
+13         x
+14         x
+"""
+train_df = pd.get_dummies(train_df, columns= ["Ticket"], prefix = "T")
+
+# Passenger Class & Sex
+
+sns.countplot(x = "Pclass", data = train_df)
+plt.show()
+
+train_df["Pclass"] = train_df["Pclass"].astype("category")
+train_df = pd.get_dummies(train_df, columns= ["Pclass"])
+train_df.head(7)
+"""
+   PassengerId  Survived     Sex  ...  Pclass_1  Pclass_2  Pclass_3
+0            1       0.0    male  ...         0         0         1
+1            2       1.0  female  ...         1         0         0
+2            3       1.0  female  ...         0         0         1
+3            4       1.0  female  ...         1         0         0
+4            5       0.0    male  ...         0         0         1
+5            6       0.0    male  ...         0         0         1
+6            7       0.0    male  ...         1         0         0
+"""
+train_df["Sex"] = train_df["Sex"].astype("category")
+train_df = pd.get_dummies(train_df, columns=["Sex"])
+
+# Drop ID & Cabin
+
+train_df.drop(labels = ["PassengerId", "Cabin"], axis = 1, inplace = True)
