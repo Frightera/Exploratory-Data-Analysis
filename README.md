@@ -2,6 +2,8 @@
 At 2:20 a.m. on April 15, 1912, the British ocean liner Titanic sinks into the North Atlantic Ocean.
 The massive ship, which carried 2,224 passengers and crew, got 1502 people killed.
 
+This project will be covering data analysis and by machine learning models predicting the survived people's count.
+
 # Overview of the data
 ![ex4](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/data%20overview.PNG)
 - **PassenderId:** Unique number for each person
