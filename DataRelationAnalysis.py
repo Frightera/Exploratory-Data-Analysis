@@ -52,3 +52,9 @@ n.map(sns.barplot, "Sex", "Fare", "Pclass")
 n.add_legend()
 plt.show()
 
+# Age - Survived
+sns.lmplot('Age','Survived', data=train_df)
+
+# Regplot
+g = sns.PairGrid(train_df[['Survived', 'Age', 'Fare', 'SibSp', 'Parch']])
+g.map(sns.regplot)
