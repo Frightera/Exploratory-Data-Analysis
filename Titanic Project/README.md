@@ -5,7 +5,7 @@ The massive ship, which carried 2,224 passengers and crew, got 1502 people kille
 This project will be covering data analysis and by machine learning models predicting the survived people's count.
 
 # Overview of the data
-![ex4](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/data%20overview.PNG)
+![ex4](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/Titanic%20Project/images/data%20overview.PNG)
 - **PassenderId:** Unique number for each person
 - **Survived:** 1 = Yes && 0 = No
 - **Pclass:** Passenger class
@@ -24,18 +24,18 @@ This project will be covering data analysis and by machine learning models predi
   - Sex - Survived ?
   - SibSp _ Survived ?
   - Parch - Survived ?
-  ![ex5](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/RelationAnalysis/Correlation.png)
+  ![ex5](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/Titanic%20Project/images/RelationAnalysis/Correlation.png)
   
   - ## Outlier Detection
-  ![ex1](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/outliers.PNG)
+  ![ex1](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/Titanic%20Project/images/outliers.PNG)
   - ## Fill - Missing Values
-  ![ex2](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/missing%20values.PNG)
+  ![ex2](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/Titanic%20Project/images/missing%20values.PNG)
   
   **As we can see people who have embarked from Q, paid less.**
-  ![ex3](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/fill_embarked.png)
+  ![ex3](https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/Titanic%20Project/images/fill_embarked.png)
   
-  # Visualization
-  <img src="https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/RelationAnalysis/Parch%20-%20Survived.png" width="250"> | <img src="https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/RelationAnalysis/Pclass%20-%20Survived%20-%20Age%20-%20Embarked.png" width="250"> | <img src="https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/images/RelationAnalysis/Pclass%20-%20Survived%20-%20Embarked%20-%20Sex%20-%20Fare.png" width="250">
-
+  # Visualization ( [all](https://github.com/Frightera/Exploratory-Data-Analysis/tree/master/Titanic%20Project/images) )
+  <img src="https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/Titanic%20Project/images/RelationAnalysis/Parch%20-%20Survived.png" width="250"> | <img src="https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/Titanic%20Project/images/RelationAnalysis/Pclass%20-%20Survived%20-%20Embarked%20-%20Sex%20-%20Fare.png" width="250"> | <img src="https://github.com/Frightera/Exploratory-Data-Analysis/blob/master/Titanic%20Project/images/RelationAnalysis/Pclass%20-%20Survived%20-%20Age%20Under%2018-%20Sex.png" width="250">
+  
 # Machine Learning Model
-- Will be added.
+- Logistic Regression added.
