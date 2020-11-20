@@ -1,4 +1,5 @@
 # Exploratory-Data-Analysis
+* Large notebooks most probably will not be rendered. You can use [this](https://nbviewer.jupyter.org/) site
 ## What is Exploratory Data Analysis?
 - Exploratory Data Analysis (EDA) is an approach/philosophy for data analysis that employs a variety of techniques (mostly graphical) to
 maximize insight into a data set;
