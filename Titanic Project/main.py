@@ -6,8 +6,8 @@ plt.style.use("seaborn-whitegrid")
 
 from collections import Counter
 
-train_df = pd.read_csv("train.csv")
-test_df = pd.read_csv("test.csv")
+train_df = pd.read_csv("D:/Masaüstüm/Projects/PythonProjects/titanic project/titanic machine learning/Titanic Project/train.csv")
+test_df = pd.read_csv("D:/Masaüstüm/Projects/PythonProjects/titanic project/titanic machine learning/Titanic Project/test.csv")
 
 test_PassengerId = test_df["PassengerId"] #storing inital as it will be changed.
 
