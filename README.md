@@ -1,5 +1,6 @@
 # Exploratory-Data-Analysis
 * Large notebooks most probably will not be rendered. You can use [this](https://nbviewer.jupyter.org/) site
+* For instance: https://nbviewer.jupyter.org/github/Frightera/Exploratory-Data-Analysis/blob/master/Covid19-EDA/Corona%20EDA%20-%20Countries%20v3.ipynb
 ## What is Exploratory Data Analysis?
 - Exploratory Data Analysis (EDA) is an approach/philosophy for data analysis that employs a variety of techniques (mostly graphical) to
 maximize insight into a data set;
