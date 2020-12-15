@@ -39,3 +39,6 @@ This project will be covering data analysis and by machine learning models predi
   
 # Machine Learning Model
 - Logistic Regression added.
+- SVM
+- Ensemble Learning
+- Decision Trees
